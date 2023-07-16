@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/vktr-r2/ts-task-manager/issues"
   },
-  "homepage": "https://github.com/vktr-r2/ts-task-manager#readme"
+  "homepage": "https://github.com/vktr-r2/ts-task-manager#readme",
+  "devDependencies": {
+    "@types/node": "^20.4.2"
+  }
 }
