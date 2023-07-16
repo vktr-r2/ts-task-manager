@@ -29,6 +29,7 @@ const taskList: Task[] = [
   },
 ];
 
+//Trigger initial question for user to select option
 rl.question(
   ` \n Welcome to TS Task Manager.  Please enter one of the following options: \n
 1 - View current tasks \n
@@ -46,13 +47,31 @@ rl.question(
   }
 );
 
+//Helper function that creates a new task
 const createTask = (): void => {
+  //Setup newTask object as custom Task type
+  const newTask: Task = {
+    id: taskList.length + 1, //Default id
+    title: "",
+    status: "Incomplete", //Default status
+    dueDate: new Date(),
+  };
+  //Ask user to input title for task
   rl.question(`\nPlease provide a title\n`, (title: string): void => {
-    console.log(title);
+    //Set user input to be title in newTask object
+    newTask.title = title;
+
+    //Ask user to input dueDate for task
     rl.question(
       `\nPlease provide a due date in the format of YYYY-MM-DD\n`,
-      (date: string): void => {                              
-        console.log(new Date(date));
+      (date: string): void => {
+        //Set user input to be dueDate in newTask object
+        newTask.dueDate = new Date(date);
+        //Show user the task they've created
+        console.log(newTask);
+        //Push newTask object to taskList array
+        taskList.push(newTask);
+        // console.log(taskList);
       }
     );
   });
