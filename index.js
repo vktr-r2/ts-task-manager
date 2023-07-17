@@ -19,35 +19,49 @@ const taskList = [
         dueDate: new Date("2023-07-15"),
     },
 ];
+//Trigger initial question for user to select option
 rl.question(` \n Welcome to TS Task Manager.  Please enter one of the following options: \n
 1 - View current tasks \n
 2 - Add new task \n
 3 - Edit existing task \n
 4 - Mark task as completed \n
 5 - Delete task \n
+6 - Close Task Manager \n
 `, (input) => {
     input === "1" && console.log(taskList);
     input === "2" && createTask();
     input === "3" && console.log("Input is 3");
     input === "4" && console.log("Input is 4");
     input === "5" && console.log("Input is 5");
+    input === "6" && closeTaskManager();
 });
+//Helper function that creates a new task
 const createTask = () => {
+    //Setup newTask object as custom Task type
     const newTask = {
         id: taskList.length + 1,
         title: "",
         status: "Incomplete",
-        dueDate: new Date
+        dueDate: new Date(),
     };
+    //Ask user to input title for task
     rl.question(`\nPlease provide a title\n`, (title) => {
+        //Set user input to be title in newTask object
         newTask.title = title;
+        //Ask user to input dueDate for task
         rl.question(`\nPlease provide a due date in the format of YYYY-MM-DD\n`, (date) => {
+            //Set user input to be dueDate in newTask object
             newTask.dueDate = new Date(date);
+            //Show user the task they've created
             console.log(newTask);
+            //Push newTask object to taskList array
             taskList.push(newTask);
-            console.log(taskList);
+            // console.log(taskList);
         });
     });
+};
+const closeTaskManager = () => {
+    rl.close();
 };
 // console.log(taskList);
 // console.log(taskList[1]);

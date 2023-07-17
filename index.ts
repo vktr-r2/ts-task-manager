@@ -37,6 +37,7 @@ rl.question(
 3 - Edit existing task \n
 4 - Mark task as completed \n
 5 - Delete task \n
+6 - Close Task Manager \n
 `,
   (input: string): void => {
     input === "1" && console.log(taskList);
@@ -44,6 +45,7 @@ rl.question(
     input === "3" && console.log("Input is 3");
     input === "4" && console.log("Input is 4");
     input === "5" && console.log("Input is 5");
+    input === "6" && closeTaskManager();
   }
 );
 
@@ -76,6 +78,11 @@ const createTask = (): void => {
     );
   });
 };
+
+//Helper function that closes the Task Manager app in terminal
+const closeTaskManager = (): void => {
+  rl.close();
+}
 
 // console.log(taskList);
 // console.log(taskList[1]);
