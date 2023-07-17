@@ -29,25 +29,28 @@ const taskList: Task[] = [
   },
 ];
 
-//Trigger initial question for user to select option
-rl.question(
-  ` \n Welcome to TS Task Manager.  Please enter one of the following options: \n
-1 - View current tasks \n
-2 - Add new task \n
-3 - Edit existing task \n
-4 - Mark task as completed \n
-5 - Delete task \n
-6 - Close Task Manager \n
-`,
-  (input: string): void => {
-    input === "1" && console.log(taskList);
-    input === "2" && createTask();
-    input === "3" && console.log("Input is 3");
-    input === "4" && console.log("Input is 4");
-    input === "5" && console.log("Input is 5");
-    input === "6" && closeTaskManager();
-  }
-);
+const promptOptions = (): void => {
+
+  //Trigger initial question for user to select option
+  rl.question(
+    ` \nPlease enter one of the following options: \n
+    1 - View current tasks \n
+    2 - Add new task \n
+    3 - Edit existing task \n
+    4 - Mark task as completed \n
+    5 - Delete task \n
+    6 - Close Task Manager \n
+    `,
+    (input: string): void => {
+      input === "1" && readTasks(taskList);
+      input === "2" && createTask();
+      input === "3" && console.log("Input is 3");
+      input === "4" && console.log("Input is 4");
+      input === "5" && console.log("Input is 5");
+      input === "6" && closeTaskManager();
+    }
+    );
+  };
 
 //Helper function that creates a new task
 const createTask = (): void => {
@@ -73,16 +76,24 @@ const createTask = (): void => {
         console.log(newTask);
         //Push newTask object to taskList array
         taskList.push(newTask);
-        // console.log(taskList);
+        // Loop user back to Task Manager prompt
+        promptOptions();
       }
     );
   });
 };
+
+const readTasks = (list: Task[]) => {
+  console.log(list);
+  setTimeout(()=> promptOptions(), 4000)
+}
 
 //Helper function that closes the Task Manager app in terminal
 const closeTaskManager = (): void => {
   rl.close();
 }
 
+console.log(`\n ~~~ Welcome to Task Manager! ~~~`);
+promptOptions();
 // console.log(taskList);
 // console.log(taskList[1]);
