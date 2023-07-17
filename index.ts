@@ -7,10 +7,11 @@ const rl = readline.createInterface({
 });
 
 import { createTask } from './helpers/create'
+import { readTasks } from './helpers/read';
 
 
 //Declare custom Task type
-type Task = {
+export type Task = {
   id: number;
   title: string;
   status: string;
@@ -56,11 +57,6 @@ export const promptOptions = (): void => {
     );
   };
 
-
-const readTasks = (list: Task[]) => {
-  console.log(list);
-  setTimeout(()=> promptOptions(), 4000)
-}
 
 //Helper function that closes the Task Manager app in terminal
 const closeTaskManager = (): void => {
