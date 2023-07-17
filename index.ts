@@ -8,6 +8,7 @@ const rl = readline.createInterface({
 
 import { createTask } from './helpers/create'
 import { readTasks } from './helpers/read';
+import { closeTaskManager } from './helpers/exit-app';
 
 
 //Declare custom Task type
@@ -59,9 +60,9 @@ export const promptOptions = (): void => {
 
 
 //Helper function that closes the Task Manager app in terminal
-const closeTaskManager = (): void => {
-  rl.close();
-}
+// const closeTaskManager = (): void => {
+//   rl.close();
+// }
 
 console.log(`\n ~~~ Welcome to Task Manager! ~~~`);
 promptOptions();
