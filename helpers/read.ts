@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 
 import { promptOptions, Task } from "../index";
 
-export const readTasks = (list: Task[]) => {
+export const readTasks = (list: {[key:number]: Task}) => {
   console.log(list);
   setTimeout(()=> promptOptions(), 4000)
 }
