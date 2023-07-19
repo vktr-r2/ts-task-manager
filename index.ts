@@ -9,6 +9,7 @@ const rl = readline.createInterface({
 import { createTask } from './helpers/create'
 import { readTasks } from './helpers/read';
 import { closeTaskManager } from './helpers/exit-app';
+import { updateTask } from './helpers/update';
 
 
 //Declare custom Task type
@@ -20,14 +21,14 @@ export type Task = {
 };
 
 //Declare taskList array to store Task objects w/ two default tasks
-export const taskList: {[key:number]: Task} = {
-  1: {
+export const taskList: {[key:string]: Task} = {
+  "1": {
     id: 1,
     title: "Test",
     status: "Incomplete",
     dueDate: new Date("2023-07-25"),
   },
-  2: {
+  "2": {
     id: 2,
     title: "Do Laundry",
     status: "Incomplete",
@@ -50,7 +51,7 @@ export const promptOptions = (): void => {
     (input: string): void => {
       input === "1" && readTasks(taskList);
       input === "2" && createTask();
-      input === "3" && console.log("Input is 3");
+      input === "3" && updateTask();
       input === "4" && console.log("Input is 4");
       input === "5" && console.log("Input is 5");
       input === "6" && closeTaskManager();

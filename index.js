@@ -10,15 +10,16 @@ const rl = readline.createInterface({
 const create_1 = require("./helpers/create");
 const read_1 = require("./helpers/read");
 const exit_app_1 = require("./helpers/exit-app");
+const update_1 = require("./helpers/update");
 //Declare taskList array to store Task objects w/ two default tasks
 exports.taskList = {
-    1: {
+    "1": {
         id: 1,
         title: "Test",
         status: "Incomplete",
         dueDate: new Date("2023-07-25"),
     },
-    2: {
+    "2": {
         id: 2,
         title: "Do Laundry",
         status: "Incomplete",
@@ -37,7 +38,7 @@ const promptOptions = () => {
     `, (input) => {
         input === "1" && (0, read_1.readTasks)(exports.taskList);
         input === "2" && (0, create_1.createTask)();
-        input === "3" && console.log("Input is 3");
+        input === "3" && (0, update_1.updateTask)();
         input === "4" && console.log("Input is 4");
         input === "5" && console.log("Input is 5");
         input === "6" && (0, exit_app_1.closeTaskManager)();
