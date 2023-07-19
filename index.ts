@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-// import { createTask } from './helpers/create'
+import { createTask } from './helpers/create'
 import { readTasks } from './helpers/read';
 import { closeTaskManager } from './helpers/exit-app';
 
@@ -49,7 +49,7 @@ export const promptOptions = (): void => {
     `,
     (input: string): void => {
       input === "1" && readTasks(taskList);
-      // input === "2" && createTask();
+      input === "2" && createTask();
       input === "3" && console.log("Input is 3");
       input === "4" && console.log("Input is 4");
       input === "5" && console.log("Input is 5");

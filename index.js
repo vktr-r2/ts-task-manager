@@ -7,7 +7,7 @@ const rl = readline.createInterface({
     output: process.stdout,
     terminal: false,
 });
-// import { createTask } from './helpers/create'
+const create_1 = require("./helpers/create");
 const read_1 = require("./helpers/read");
 const exit_app_1 = require("./helpers/exit-app");
 //Declare taskList array to store Task objects w/ two default tasks
@@ -36,7 +36,7 @@ const promptOptions = () => {
     6 - Close Task Manager \n
     `, (input) => {
         input === "1" && (0, read_1.readTasks)(exports.taskList);
-        // input === "2" && createTask();
+        input === "2" && (0, create_1.createTask)();
         input === "3" && console.log("Input is 3");
         input === "4" && console.log("Input is 4");
         input === "5" && console.log("Input is 5");
