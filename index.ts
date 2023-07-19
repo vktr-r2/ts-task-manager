@@ -8,8 +8,9 @@ const rl = readline.createInterface({
 
 import { createTask } from './helpers/create'
 import { readTasks } from './helpers/read';
-import { closeTaskManager } from './helpers/exit-app';
+import { closeTaskManager } from './helpers/exit';
 import { updateTask } from './helpers/update';
+import { deleteTask } from './helpers/delete';
 
 
 //Declare custom Task type
@@ -53,7 +54,7 @@ export const promptOptions = (): void => {
       input === "2" && createTask();
       input === "3" && updateTask();
       input === "4" && console.log("Input is 4");
-      input === "5" && console.log("Input is 5");
+      input === "5" && deleteTask();
       input === "6" && closeTaskManager();
     }
     );

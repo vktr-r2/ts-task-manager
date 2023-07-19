@@ -11,7 +11,6 @@ const index_1 = require("../index");
 //Helper function that edits an existing task
 const updateTask = () => {
     console.log(index_1.taskList);
-    rl.question(`\nPlease enter a task ID\n`, (id) => {
-    });
+    rl.question(`\nPlease enter a task ID\n`, (id) => { });
 };
 exports.updateTask = updateTask;

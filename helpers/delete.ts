@@ -8,9 +8,5 @@ const rl = readline.createInterface({
 
 import { taskList, promptOptions } from "../index";
 
-//Helper function that edits an existing task
-export const updateTask = (): void => {
-  console.log(taskList);
-
-  rl.question(`\nPlease enter a task ID\n`, (id: string) => {});
-};
+//Helper function that deletes an existing task
+export const deleteTask = (): void => {};
