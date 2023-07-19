@@ -11,6 +11,7 @@ import { readTasks } from './helpers/read';
 import { closeTaskManager } from './helpers/exit';
 import { updateTask } from './helpers/update';
 import { deleteTask } from './helpers/delete';
+import { completeTask } from './helpers/complete';
 
 
 //Declare custom Task type
@@ -53,7 +54,7 @@ export const promptOptions = (): void => {
       input === "1" && readTasks(taskList);
       input === "2" && createTask();
       input === "3" && updateTask();
-      input === "4" && console.log("Input is 4");
+      input === "4" && completeTask();
       input === "5" && deleteTask();
       input === "6" && closeTaskManager();
     }

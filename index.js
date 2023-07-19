@@ -12,6 +12,7 @@ const read_1 = require("./helpers/read");
 const exit_1 = require("./helpers/exit");
 const update_1 = require("./helpers/update");
 const delete_1 = require("./helpers/delete");
+const complete_1 = require("./helpers/complete");
 //Declare taskList array to store Task objects w/ two default tasks
 exports.taskList = {
     "1": {
@@ -40,7 +41,7 @@ const promptOptions = () => {
         input === "1" && (0, read_1.readTasks)(exports.taskList);
         input === "2" && (0, create_1.createTask)();
         input === "3" && (0, update_1.updateTask)();
-        input === "4" && console.log("Input is 4");
+        input === "4" && (0, complete_1.completeTask)();
         input === "5" && (0, delete_1.deleteTask)();
         input === "6" && (0, exit_1.closeTaskManager)();
     });
