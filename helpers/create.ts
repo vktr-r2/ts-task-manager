@@ -9,9 +9,12 @@ const rl = readline.createInterface({
 import { promptOptions, Task } from "../index";
 
 //Helper function that creates a new task
-export const createTask = (list: {[key:number]: Task}) => {
+export const createTask = (list: {[key:number]: Task}): void => {
 
-  const taskId: number = Object.keys(list).length + 1
+  const taskIdsArray: number[] = Object.keys(list).map(Number);
+  taskIdsArray.sort((a: number, b:number) => a-b);
+
+  const taskId: number = taskIdsArray[taskIdsArray.length - 1] + 1;
 
   //Setup newTask object as custom Task type
   const newTask: Task = {

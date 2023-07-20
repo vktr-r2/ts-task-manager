@@ -10,7 +10,9 @@ const rl = readline.createInterface({
 const index_1 = require("../index");
 //Helper function that creates a new task
 const createTask = (list) => {
-    const taskId = Object.keys(list).length + 1;
+    const taskIdsArray = Object.keys(list).map(Number);
+    taskIdsArray.sort((a, b) => a - b);
+    const taskId = taskIdsArray[taskIdsArray.length - 1] + 1;
     //Setup newTask object as custom Task type
     const newTask = {
         id: taskId,
