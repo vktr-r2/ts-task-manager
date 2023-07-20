@@ -52,7 +52,7 @@ export const promptOptions = (): void => {
     `,
     (input: string): void => {
       input === "1" && readTasks(taskList);
-      input === "2" && createTask();
+      input === "2" && createTask(taskList);
       input === "3" && updateTask();
       input === "4" && completeTask();
       input === "5" && deleteTask();

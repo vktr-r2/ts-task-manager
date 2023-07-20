@@ -6,15 +6,15 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { taskList, promptOptions } from "../index";
+import { promptOptions, Task } from "../index";
 
 //Helper function that creates a new task
-export const createTask = () => {
+export const createTask = (list: {[key:number]: Task}) => {
 
-  const taskId: number = Object.keys(taskList).length + 1
+  const taskId: number = Object.keys(list).length + 1
 
   //Setup newTask object as custom Task type
-  const newTask = {
+  const newTask: Task = {
     id: taskId,
     title: "",
     status: "Incomplete",
@@ -36,7 +36,7 @@ export const createTask = () => {
           //Show user the task they've created
           console.log(newTask);
           //Push newTask object to taskList array
-          taskList[taskId] = newTask;
+          list[taskId] = newTask;
           // Loop user back to Task Manager prompt
           promptOptions();
         }
