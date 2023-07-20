@@ -55,7 +55,7 @@ export const promptOptions = (): void => {
       input === "2" && createTask(taskList);
       input === "3" && updateTask();
       input === "4" && completeTask();
-      input === "5" && deleteTask();
+      input === "5" && deleteTask(taskList);
       input === "6" && closeTaskManager();
     }
     );

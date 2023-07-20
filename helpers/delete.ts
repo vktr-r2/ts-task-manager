@@ -6,7 +6,19 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { taskList, promptOptions } from "../index";
+import { promptOptions, Task } from "../index";
 
 //Helper function that deletes an existing task
-export const deleteTask = (): void => {};
+export const deleteTask = (list: {[key:number]: Task}): void => {
+  
+  //ASYNC TEMP WORKAROUND
+  setTimeout(() => {
+    //Ask user to input id for task to be deleted
+    rl.question(`\nPlease select which task you'd like to delete\n`, (id: number) => {
+      delete list[id];
+      promptOptions()
+    });
+  }),
+    1; //setTimeout length for TEMP WORKAROUND
+
+};

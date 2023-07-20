@@ -9,8 +9,8 @@ const rl = readline.createInterface({
 });
 const index_1 = require("../index");
 //Helper function that creates a new task
-const createTask = () => {
-    const taskId = Object.keys(index_1.taskList).length + 1;
+const createTask = (list) => {
+    const taskId = Object.keys(list).length + 1;
     //Setup newTask object as custom Task type
     const newTask = {
         id: taskId,
@@ -31,7 +31,7 @@ const createTask = () => {
                 //Show user the task they've created
                 console.log(newTask);
                 //Push newTask object to taskList array
-                index_1.taskList[taskId] = newTask;
+                list[taskId] = newTask;
                 // Loop user back to Task Manager prompt
                 (0, index_1.promptOptions)();
             });

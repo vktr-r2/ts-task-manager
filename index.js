@@ -39,10 +39,10 @@ const promptOptions = () => {
     6 - Close Task Manager \n
     `, (input) => {
         input === "1" && (0, read_1.readTasks)(exports.taskList);
-        input === "2" && (0, create_1.createTask)();
+        input === "2" && (0, create_1.createTask)(exports.taskList);
         input === "3" && (0, update_1.updateTask)();
         input === "4" && (0, complete_1.completeTask)();
-        input === "5" && (0, delete_1.deleteTask)();
+        input === "5" && (0, delete_1.deleteTask)(exports.taskList);
         input === "6" && (0, exit_1.closeTaskManager)();
     });
 };
