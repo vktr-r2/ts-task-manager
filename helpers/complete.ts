@@ -6,16 +6,26 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { taskList, promptOptions } from "../index";
+import { promptOptions, Task } from "../index";
 
-//Helper function that edits an existing task
-export const completeTask = (): void => {
-  console.log(taskList);
+//Helper function that completes/incompletes an existing task
+export const completeTask = (list: { [key: number]: Task }): void => {
+  //Show user current taskList
+  console.log(list);
 
-  rl.question(`\nPlease enter ID for task to be marked as completed\n`, (id: string) => {
-    taskList[id].status = "completed";
-    promptOptions();
-  });
-
-
-}
+  //ASYNC TEMP WORKAROUND
+  setTimeout(() => {
+    //Ask user to input id for task to be completed/incompleted
+    rl.question(
+      `\nPlease select which task you'd like to mark as completed/incompleted\n`,
+      (id: number) => {
+        //Terniery to swap current status to completed/incompleted
+        list[id].status === "Incomplete"
+          ? (list[id].status = "Complete")
+          : (list[id].status = "Incomplete");
+        promptOptions();
+      }
+    );
+  }),
+    1; //ASYNC TEMP WORKAROUND
+};

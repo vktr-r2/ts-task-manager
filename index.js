@@ -34,14 +34,14 @@ const promptOptions = () => {
     1 - View current tasks \n
     2 - Add new task \n
     3 - Edit existing task \n
-    4 - Mark task as completed \n
+    4 - Mark task as complete/incomplete \n
     5 - Delete task \n
     6 - Close Task Manager \n
     `, (input) => {
         input === "1" && (0, read_1.readTasks)(exports.taskList);
         input === "2" && (0, create_1.createTask)(exports.taskList);
         input === "3" && (0, update_1.updateTask)();
-        input === "4" && (0, complete_1.completeTask)();
+        input === "4" && (0, complete_1.completeTask)(exports.taskList);
         input === "5" && (0, delete_1.deleteTask)(exports.taskList);
         input === "6" && (0, exit_1.closeTaskManager)();
     });

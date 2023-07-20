@@ -8,12 +8,21 @@ const rl = readline.createInterface({
     terminal: false,
 });
 const index_1 = require("../index");
-//Helper function that edits an existing task
-const completeTask = () => {
-    console.log(index_1.taskList);
-    rl.question(`\nPlease enter ID for task to be marked as completed\n`, (id) => {
-        index_1.taskList[id].status = "completed";
-        (0, index_1.promptOptions)();
-    });
+//Helper function that completes/incompletes an existing task
+const completeTask = (list) => {
+    //Show user current taskList
+    console.log(list);
+    //ASYNC TEMP WORKAROUND
+    setTimeout(() => {
+        //Ask user to input id for task to be completed/incompleted
+        rl.question(`\nPlease select which task you'd like to mark as completed/incompleted\n`, (id) => {
+            //Terniery to swap current status to completed/incompleted
+            list[id].status === "Incomplete"
+                ? (list[id].status = "Complete")
+                : (list[id].status = "Incomplete");
+            (0, index_1.promptOptions)();
+        });
+    }),
+        1; //ASYNC TEMP WORKAROUND
 };
 exports.completeTask = completeTask;

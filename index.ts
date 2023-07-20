@@ -46,7 +46,7 @@ export const promptOptions = (): void => {
     1 - View current tasks \n
     2 - Add new task \n
     3 - Edit existing task \n
-    4 - Mark task as completed \n
+    4 - Mark task as complete/incomplete \n
     5 - Delete task \n
     6 - Close Task Manager \n
     `,
@@ -54,7 +54,7 @@ export const promptOptions = (): void => {
       input === "1" && readTasks(taskList);
       input === "2" && createTask(taskList);
       input === "3" && updateTask();
-      input === "4" && completeTask();
+      input === "4" && completeTask(taskList);
       input === "5" && deleteTask(taskList);
       input === "6" && closeTaskManager();
     }
