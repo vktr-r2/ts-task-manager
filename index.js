@@ -18,12 +18,14 @@ exports.taskList = {
     "1": {
         id: 1,
         title: "Test",
+        note: "Need to get this done ASAP",
         status: "Incomplete",
         dueDate: new Date("2023-07-25"),
     },
     "2": {
         id: 2,
         title: "Do Laundry",
+        note: "Don't forget the detergent this time!",
         status: "Incomplete",
         dueDate: new Date("2023-07-15"),
     },
@@ -40,7 +42,7 @@ const promptOptions = () => {
     `, (input) => {
         input === "1" && (0, read_1.readTasks)(exports.taskList);
         input === "2" && (0, create_1.createTask)(exports.taskList);
-        input === "3" && (0, update_1.updateTask)();
+        input === "3" && (0, update_1.updateTask)(exports.taskList);
         input === "4" && (0, complete_1.completeTask)(exports.taskList);
         input === "5" && (0, delete_1.deleteTask)(exports.taskList);
         input === "6" && (0, exit_1.closeTaskManager)();

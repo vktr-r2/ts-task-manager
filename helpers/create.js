@@ -19,6 +19,7 @@ const createTask = (list) => {
     const newTask = {
         id: taskId,
         title: "",
+        note: "",
         status: "Incomplete",
         dueDate: new Date(),
     };
@@ -29,15 +30,18 @@ const createTask = (list) => {
             //Set user input to be title in newTask object
             newTask.title = title;
             //Ask user to input dueDate for task
-            rl.question(`\nPlease provide a due date in the format of YYYY-MM-DD\n`, (date) => {
-                //Set user input to be dueDate in newTask object
-                newTask.dueDate = new Date(date);
-                //Show user the task they've created
-                console.log(newTask);
-                //Push newTask object to taskList array
-                list[taskId] = newTask;
-                // Loop user back to Task Manager prompt
-                (0, index_1.promptOptions)();
+            rl.question(`\nPlease provide a note\n`, (note) => {
+                newTask.note = note;
+                rl.question(`\nPlease provide a due date in the format of YYYY-MM-DD\n`, (date) => {
+                    //Set user input to be dueDate in newTask object
+                    newTask.dueDate = new Date(date);
+                    //Show user the task they've created
+                    console.log(newTask);
+                    //Push newTask object to taskList array
+                    list[taskId] = newTask;
+                    // Loop user back to Task Manager prompt
+                    (0, index_1.promptOptions)();
+                });
             });
         });
     }),

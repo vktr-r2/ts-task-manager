@@ -18,6 +18,7 @@ import { completeTask } from './helpers/complete';
 export type Task = {
   id: number;
   title: string;
+  note: string;
   status: string;
   dueDate: Date;
 };
@@ -27,12 +28,14 @@ export const taskList: {[key:string]: Task} = {
   "1": {
     id: 1,
     title: "Test",
+    note: "Need to get this done ASAP",
     status: "Incomplete",
     dueDate: new Date("2023-07-25"),
   },
   "2": {
     id: 2,
     title: "Do Laundry",
+    note: "Don't forget the detergent this time!",
     status: "Incomplete",
     dueDate: new Date("2023-07-15"),
   },
@@ -53,7 +56,7 @@ export const promptOptions = (): void => {
     (input: string): void => {
       input === "1" && readTasks(taskList);
       input === "2" && createTask(taskList);
-      input === "3" && updateTask();
+      input === "3" && updateTask(taskList);
       input === "4" && completeTask(taskList);
       input === "5" && deleteTask(taskList);
       input === "6" && closeTaskManager();
