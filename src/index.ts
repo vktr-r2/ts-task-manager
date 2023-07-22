@@ -6,12 +6,12 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { createTask } from './helpers/create'
-import { readTasks } from './helpers/read';
-import { closeTaskManager } from './helpers/exit';
-import { updateTask } from './helpers/update';
-import { deleteTask } from './helpers/delete';
-import { completeTask } from './helpers/complete';
+import { createTask } from '../helpers/create'
+import { readTasks } from '../helpers/read';
+import { closeTaskManager } from '../helpers/exit';
+import { updateTask } from '../helpers/update';
+import { deleteTask } from '../helpers/delete';
+import { completeTask } from '../helpers/complete';
 
 
 //Declare custom Task type

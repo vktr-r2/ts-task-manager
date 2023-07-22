@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { Task, promptOptions } from "../index";
+import { Task, promptOptions } from "../src/index";
 
 //Helper function that edits an existing task
 export const updateTask = (list: {[key:number]: Task}): void => {

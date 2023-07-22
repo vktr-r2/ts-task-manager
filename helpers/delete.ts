@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { promptOptions, Task } from "../index";
+import { promptOptions, Task } from "../src/index";
 
 //Helper function that deletes an existing task
 export const deleteTask = (list: {[key:number]: Task}): void => {

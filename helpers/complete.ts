@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { promptOptions, Task } from "../index";
+import { promptOptions, Task } from "../src/index";
 
 //Helper function that completes/incompletes an existing task
 export const completeTask = (list: { [key: number]: Task }): void => {
