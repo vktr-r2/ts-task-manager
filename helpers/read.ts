@@ -6,9 +6,11 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-import { promptOptions, Task } from "../index";
+import { promptOptions, Task } from "../src/index";
 
-export const readTasks = (list: {[key:number]: Task}) => {
-  console.log(list);
-  setTimeout(()=> promptOptions(), 4000)
-}
+export const readTasks = (list: { [key: number]: Task }) => {
+  return new Promise<void>((resolve) => {
+    console.log(list);
+    setTimeout(resolve, 4000);
+  }).then(() => promptOptions());
+};
