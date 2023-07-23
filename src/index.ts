@@ -72,5 +72,3 @@ export const promptOptions = (): void => {
 
 console.log(`\n ~~~ Welcome to Task Manager! ~~~`);
 promptOptions();
-// console.log(taskList);
-// console.log(taskList[1]);
