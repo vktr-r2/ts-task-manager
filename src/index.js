@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.promptOptions = exports.taskList = void 0;
-var readline = require("readline");
-var rl = readline.createInterface({
+exports.promptOptions = exports.taskList = exports.rl = void 0;
+const readline = require("readline");
+exports.rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: false,
 });
-var create_1 = require("../helpers/create");
-var read_1 = require("../helpers/read");
-var exit_1 = require("../helpers/exit");
-var update_1 = require("../helpers/update");
-var delete_1 = require("../helpers/delete");
-var complete_1 = require("../helpers/complete");
+const create_1 = require("../helpers/create");
+const read_1 = require("../helpers/read");
+const exit_1 = require("../helpers/exit");
+const update_1 = require("../helpers/update");
+const delete_1 = require("../helpers/delete");
+const complete_1 = require("../helpers/complete");
 //Declare taskList array to store Task objects w/ two default tasks
 exports.taskList = {
     "1": {
@@ -30,9 +30,16 @@ exports.taskList = {
         dueDate: new Date("2023-07-15"),
     },
 };
-var promptOptions = function () {
+const promptOptions = () => {
     //Trigger initial question for user to select option
-    rl.question(" \nPlease enter one of the following options: \n\n    1 - View current tasks \n\n    2 - Add new task \n\n    3 - Edit existing task \n\n    4 - Mark task as complete/incomplete \n\n    5 - Delete task \n\n    6 - Close Task Manager \n\n    ", function (input) {
+    exports.rl.question(` \nPlease enter one of the following options: \n
+    1 - View current tasks \n
+    2 - Add new task \n
+    3 - Edit existing task \n
+    4 - Mark task as complete/incomplete \n
+    5 - Delete task \n
+    6 - Close Task Manager \n
+    `, (input) => {
         input === "1" && (0, read_1.readTasks)(exports.taskList);
         input === "2" && (0, create_1.createTask)(exports.taskList);
         input === "3" && (0, update_1.updateTask)(exports.taskList);
@@ -46,7 +53,7 @@ exports.promptOptions = promptOptions;
 // const closeTaskManager = (): void => {
 //   rl.close();
 // }
-console.log("\n ~~~ Welcome to Task Manager! ~~~");
+console.log(`\n ~~~ Welcome to Task Manager! ~~~`);
 (0, exports.promptOptions)();
 // console.log(taskList);
 // console.log(taskList[1]);
