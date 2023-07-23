@@ -1,12 +1,16 @@
-const readline = require("readline");
+import { Task, promptOptions, rl } from "../src/index";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
-
-import { Task, promptOptions } from "../src/index";
+/**
+ * Helper function that edits an existing task
+ * 1. Log taskList
+ * 2. Ask user intput id for task to be updated
+ * 3. Ask user which values to be updated and update accordingly
+ * 4. Log updated task
+ * 5. Give user promptOptions once again
+ * 
+ * @param {Object} list of tasks. The keys are numbers, and the values are Task objects.
+ * @return void
+ */
 
 //Helper function that edits an existing task
 export const updateTask = (list: {[key:number]: Task}): void => {

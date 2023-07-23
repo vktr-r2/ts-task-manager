@@ -1,10 +1,9 @@
-const readline = require("readline");
+import { rl } from "../src/index";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
+/**
+* Function to exit readline in CLI
+* @returns void
+*/
 
 export const closeTaskManager = (): void => {
   rl.close();

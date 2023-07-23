@@ -1,25 +1,25 @@
-const readline = require("readline");
+import { promptOptions, Task, rl } from "../src/index";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
+/**
+ * Helper function that completes/incompletes an existing task
+ * 1. Log taskList
+ * 2. Ask user to input Id for task to be completed/incompleted
+ * 3. Ternary oeprator to toggle value as complete/incomplete
+ * 4. Prompt user with promptOptions again
+ * 
+ * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @return void
+*/
 
-import { promptOptions, Task } from "../src/index";
-
-//Helper function that completes/incompletes an existing task
 export const completeTask = (list: { [key: number]: Task }): void => {
-  //Show user current taskList
+
   console.log(list);
 
-  //ASYNC TEMP WORKAROUND
   setTimeout(() => {
-    //Ask user to input id for task to be completed/incompleted
     rl.question(
       `\nPlease select which task you'd like to mark as completed/incompleted\n`,
       (id: number) => {
-        //Terniery to swap current status to completed/incompleted
+
         list[id].status === "Incomplete"
           ? (list[id].status = "Complete")
           : (list[id].status = "Incomplete");
@@ -27,5 +27,5 @@ export const completeTask = (list: { [key: number]: Task }): void => {
       }
     );
   }),
-    1; //ASYNC TEMP WORKAROUND
+    1;
 };

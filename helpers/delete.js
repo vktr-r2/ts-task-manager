@@ -1,19 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTask = void 0;
-var readline = require("readline");
-var rl = readline.createInterface({
+const readline = require("readline");
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: false,
 });
-var index_1 = require("../src/index");
+const index_1 = require("../src/index");
+/**
+ * Function to deletes an existing task and then return user to promptOptions
+ *
+ * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @return {Promise} A Promise that resolves to void and then calls promptOptions.
+ */
 //Helper function that deletes an existing task
-var deleteTask = function (list) {
+const deleteTask = (list) => {
     //ASYNC TEMP WORKAROUND
-    setTimeout(function () {
+    setTimeout(() => {
         //Ask user to input id for task to be deleted
-        rl.question("\nPlease select which task you'd like to delete\n", function (id) {
+        rl.question(`\nPlease select which task you'd like to delete\n`, (id) => {
             delete list[id];
             (0, index_1.promptOptions)();
         });

@@ -1,22 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTask = void 0;
-var readline = require("readline");
-var rl = readline.createInterface({
+const readline = require("readline");
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: false,
 });
-var index_1 = require("../src/index");
+const index_1 = require("../src/index");
+/**
+ * 1 - Determine what next taskId should be using Object.keys and .sort
+ * 2 - Create empty newTask Task object
+ * 3 - Accept user input values and assign to appropriate newTask keys
+ * 4 - Add newTask to taskList object
+ *
+ * * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ */
 //Helper function that creates a new task
-var createTask = function (list) {
+const createTask = (list) => {
     //Sort existing Ids into numerical array ascending order
-    var taskIdsArray = Object.keys(list).map(Number);
-    taskIdsArray.sort(function (a, b) { return a - b; });
+    const taskIdsArray = Object.keys(list).map(Number);
+    taskIdsArray.sort((a, b) => a - b);
     //Assign new taskId to be last element in the array + 1
-    var taskId = taskIdsArray[taskIdsArray.length - 1] + 1;
+    const taskId = taskIdsArray[taskIdsArray.length - 1] + 1;
     //Setup newTask object as custom Task type
-    var newTask = {
+    const newTask = {
         id: taskId,
         title: "",
         note: "",
@@ -24,15 +32,15 @@ var createTask = function (list) {
         dueDate: new Date(),
     };
     //setTimeout used as TEMP WORKAROUND because title being captured as option input from promptOptions function
-    setTimeout(function () {
+    setTimeout(() => {
         //Ask user to input title for task
-        rl.question("\nPlease provide a title\n", function (title) {
+        rl.question(`\nPlease provide a title\n`, (title) => {
             //Set user input to be title in newTask object
             newTask.title = title;
             //Ask user to input dueDate for task
-            rl.question("\nPlease provide a note\n", function (note) {
+            rl.question(`\nPlease provide a note\n`, (note) => {
                 newTask.note = note;
-                rl.question("\nPlease provide a due date in the format of YYYY-MM-DD\n", function (date) {
+                rl.question(`\nPlease provide a due date in the format of YYYY-MM-DD\n`, (date) => {
                     //Set user input to be dueDate in newTask object
                     newTask.dueDate = new Date(date);
                     //Show user the task they've created

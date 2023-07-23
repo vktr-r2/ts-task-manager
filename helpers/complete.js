@@ -1,21 +1,21 @@
 "use strict";
+// const readline = require("readline");
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.completeTask = void 0;
-var readline = require("readline");
-var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false,
-});
-var index_1 = require("../src/index");
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+//   terminal: false,
+// });
+const index_1 = require("../src/index");
 //Helper function that completes/incompletes an existing task
-var completeTask = function (list) {
+const completeTask = (list) => {
     //Show user current taskList
     console.log(list);
     //ASYNC TEMP WORKAROUND
-    setTimeout(function () {
+    setTimeout(() => {
         //Ask user to input id for task to be completed/incompleted
-        rl.question("\nPlease select which task you'd like to mark as completed/incompleted\n", function (id) {
+        index_1.rl.question(`\nPlease select which task you'd like to mark as completed/incompleted\n`, (id) => {
             //Terniery to swap current status to completed/incompleted
             list[id].status === "Incomplete"
                 ? (list[id].status = "Complete")

@@ -1,13 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.closeTaskManager = void 0;
-var readline = require("readline");
-var rl = readline.createInterface({
+const readline = require("readline");
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: false,
 });
-var closeTaskManager = function () {
+/**
+* Function to exit readline in CLI
+* @returns void
+*/
+const closeTaskManager = () => {
     rl.close();
 };
 exports.closeTaskManager = closeTaskManager;
