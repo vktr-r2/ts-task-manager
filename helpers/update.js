@@ -8,15 +8,31 @@ exports.updateTask = void 0;
 //   terminal: false,
 // });
 const readlineSync = require("readline-sync");
+const index_1 = require("../src/index");
 const updateTask = (list) => {
     console.log(list);
-    // setTimeout(() => {
-    const task = readlineSync.question("\nPlease enter ID for task you would like to update\n");
-    console.log(list[task]);
-    const options = ["Title", "Note", "Status", "Due Date", "Cancel/Save"];
-    const index = readlineSync.keyInSelect(options, "What would you like to edit?");
-    console.log(options[index]);
-    // }, 5000);
+    const id = readlineSync.question("\nPlease enter ID for task you would like to update\n");
+    console.log(list[id]);
+    const updateTitle = readlineSync.question("\nWould you like to update the title?\n");
+    if (updateTitle === "Y") {
+        list[id].title = readlineSync.question("\nPlease enter new title\n");
+    }
+    const updateNote = readlineSync.question("\nWould you like to update the note?\n");
+    if (updateNote === "Y") {
+        list[id].note = readlineSync.question("\nPlease enter new note\n");
+    }
+    const updateStatus = readlineSync.question("\nWould you like to update the status?\n");
+    if (updateStatus === "Y") {
+        list[id].status === "Incomplete"
+            ? (list[id].status = "Complete")
+            : (list[id].status = "Incomplete");
+    }
+    const updateDueDate = readlineSync.question("\nWould you like to update the due date?\n");
+    if (updateDueDate === "Y") {
+        list[id].dueDate = readlineSync.question("\nPlease enter new due date\n");
+    }
+    console.log(list[id]);
+    setTimeout(() => (0, index_1.promptOptions)(), 3000);
 };
 exports.updateTask = updateTask;
 // /**
