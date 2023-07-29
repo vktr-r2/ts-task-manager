@@ -55,5 +55,3 @@ exports.promptOptions = promptOptions;
 // }
 console.log(`\n ~~~ Welcome to Task Manager! ~~~`);
 (0, exports.promptOptions)();
-// console.log(taskList);
-// console.log(taskList[1]);

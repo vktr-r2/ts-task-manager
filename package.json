@@ -19,5 +19,8 @@
   "homepage": "https://github.com/vktr-r2/ts-task-manager#readme",
   "devDependencies": {
     "@types/node": "^20.4.2"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
