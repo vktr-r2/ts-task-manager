@@ -21,6 +21,7 @@ export type Task = {
   note: string;
   status: string;
   dueDate: Date;
+  [key: string]: string | number | Date;
 };
 
 //Declare taskList array to store Task objects w/ two default tasks
