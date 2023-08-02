@@ -5,9 +5,10 @@ const readlineSync = require("readline-sync");
 const index_1 = require("../src/index");
 const validateYOrN_1 = require("./validateYOrN");
 const getValidDate_1 = require("./getValidDate");
+const validateTaskSelect_1 = require("./validateTaskSelect");
 const updateTask = (list) => {
     console.log(list);
-    const id = readlineSync.question("\nPlease enter ID for task you would like to update\n");
+    const id = (0, validateTaskSelect_1.validateTaskSelection)(list);
     console.log(list[id]);
     const fieldsToUpdate = [
         { key: "title", message: "Please enter new title\n" },

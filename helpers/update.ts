@@ -3,13 +3,13 @@ const readlineSync = require("readline-sync");
 import { Task, promptOptions } from "../src/index";
 import { validateYOrN } from "./validateYOrN";
 import { getValidDate } from "./getValidDate";
+import { validateTaskSelection } from "./validateTaskSelect";
 
 export const updateTask = (list: { [key: string]: Task }): void => {
   console.log(list);
 
-  const id: string = readlineSync.question(
-    "\nPlease enter ID for task you would like to update\n"
-  );
+  const id = validateTaskSelection(list)
+  
   console.log(list[id]);
 
   const fieldsToUpdate: { key: string; message: string }[] = [
