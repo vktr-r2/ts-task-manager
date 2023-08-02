@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.completeTask = void 0;
 const index_1 = require("../src/index");
+const validateTaskSelect_1 = require("./validateTaskSelect");
 /**
  * Helper function that completes/incompletes an existing task
  * 1. Log taskList
@@ -11,17 +12,13 @@ const index_1 = require("../src/index");
  *
  * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return void
-*/
+ */
 const completeTask = (list) => {
     console.log(list);
-    setTimeout(() => {
-        index_1.rl.question(`\nPlease select which task you'd like to mark as completed/incompleted\n`, (id) => {
-            list[id].status === "Incomplete"
-                ? (list[id].status = "Complete")
-                : (list[id].status = "Incomplete");
-            (0, index_1.promptOptions)();
-        });
-    }),
-        1;
+    const id = (0, validateTaskSelect_1.validateTaskSelection)(list);
+    list[id].status === "Incomplete"
+        ? (list[id].status = "Complete")
+        : (list[id].status = "Incomplete");
+    (0, index_1.promptOptions)();
 };
 exports.completeTask = completeTask;

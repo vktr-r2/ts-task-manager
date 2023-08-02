@@ -1,4 +1,5 @@
 import { promptOptions, Task, rl } from "../src/index";
+import { validateTaskSelection } from "./validateTaskSelect";
 
 /**
  * Helper function that completes/incompletes an existing task
@@ -6,26 +7,18 @@ import { promptOptions, Task, rl } from "../src/index";
  * 2. Ask user to input Id for task to be completed/incompleted
  * 3. Ternary oeprator to toggle value as complete/incomplete
  * 4. Prompt user with promptOptions again
- * 
+ *
  * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return void
-*/
+ */
 
-export const completeTask = (list: { [key: number]: Task }): void => {
-
+export const completeTask = (list: { [key: string]: Task }): void => {
   console.log(list);
 
-  setTimeout(() => {
-    rl.question(
-      `\nPlease select which task you'd like to mark as completed/incompleted\n`,
-      (id: number) => {
+  const id: string = validateTaskSelection(list);
 
-        list[id].status === "Incomplete"
-          ? (list[id].status = "Complete")
-          : (list[id].status = "Incomplete");
-        promptOptions();
-      }
-    );
-  }),
-    1;
+  list[id].status === "Incomplete"
+    ? (list[id].status = "Complete")
+    : (list[id].status = "Incomplete");
+  promptOptions();
 };
