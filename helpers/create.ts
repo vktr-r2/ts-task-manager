@@ -37,7 +37,7 @@ export const createTask = (list: { [key: number]: Task }): void => {
         rl.question(
           `\nPlease provide a due date in the format of YYYY-MM-DD\n`,
           (date: string) => {
-            newTask.dueDate = getValidDate(list);
+            newTask.dueDate = new Date(getValidDate(list));
             console.log(newTask);
             list[taskId] = newTask;
 

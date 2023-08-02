@@ -31,7 +31,7 @@ const createTask = (list) => {
             index_1.rl.question(`\nPlease provide a note\n`, (note) => {
                 newTask.note = note;
                 index_1.rl.question(`\nPlease provide a due date in the format of YYYY-MM-DD\n`, (date) => {
-                    newTask.dueDate = (0, getValidDate_1.getValidDate)(list);
+                    newTask.dueDate = new Date((0, getValidDate_1.getValidDate)(list));
                     console.log(newTask);
                     list[taskId] = newTask;
                     (0, index_1.promptOptions)();

@@ -1,3 +1,7 @@
+const readlineSync = require("readline-sync");
+
+import { Task, promptOptions } from "../src/index";
+
 /**
  * Helper function that validates user input string for dueDate
  * 1. Set regex for date format pattern YYYY/MM/DD
@@ -13,7 +17,12 @@
  * @returns boolean: true if valid date input, false otherwise
  */
 
-export const checkValidDate = (dateInput: string): boolean => {
+export const getValidDate = (list: { [key: string]: Task }): string => {
+
+  let dateInput: string = readlineSync.question(
+    "\nPlease enter a current or future due date (YYYY/MM/DD format)\n"
+  );
+ 
 
   // ^ start-of-string anchor: tells regex to start pattern match from first char
   // \d digits: checks for char 0-9
@@ -25,7 +34,8 @@ export const checkValidDate = (dateInput: string): boolean => {
 
   // Check for string pattern.  IF falsy, return FALSE
   if (!dateRegex.test(dateInput)) {
-    return false;
+    console.log("Failed regex")
+    return getValidDate(list);
   }
 
   // Parse date into integers parts
@@ -35,8 +45,8 @@ export const checkValidDate = (dateInput: string): boolean => {
   const day = parseInt(dateParts[2], 10);
 
   // Check the month/year ranges
-  if (year < 1000 || year > 3000 || month <= 0 || month > 12) {
-    return false;
+  if (year < 1000 || year > 3000 || month <= 0 || month > 12 || day <= 0 || day > 31) {
+    // getValidDate(list);
   }
 
   // Create new date object.  Months are 0 indexed so JS month is always -1
@@ -44,16 +54,24 @@ export const checkValidDate = (dateInput: string): boolean => {
 
   // Check validity of date integer parts to see if date exists (Check against Feb 30th, Nov 31st ex)
   if (!(date.getFullYear()=== year && date.getMonth() + 1 === month && date.getDate() === day)) {
-    return false;
+    console.log("failed valid date test");
+    return getValidDate(list);
   }
 
   // Check that date has not passed
   const today = new Date();   // todays date object set date and time to current time
   today.setHours(0,0,0,0,);   // reset time to midnight (hours, mins, seconds, miliseconds)
   if (date < today) {         // check if date is before todays date
-    return false
+    console.log("failed past date test")
+    return getValidDate(list);
   }
 
   //Date is valid
-  return true;
+  console.log("reached valid date return");
+  return dateInput;
 };
+
+
+//Date input correctly from start is accepted
+//No date input, then date input incorrectly > loop
+//Previous date input, then date input correctly > previous date is added to the object
