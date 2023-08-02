@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTask = void 0;
 const index_1 = require("../src/index");
+const getValidDate_1 = require("./getValidDate");
 /**
  * Helper function that creates a new task
  * 1. Determine what next taskId should be using Object.keys and .sort
@@ -30,7 +31,7 @@ const createTask = (list) => {
             index_1.rl.question(`\nPlease provide a note\n`, (note) => {
                 newTask.note = note;
                 index_1.rl.question(`\nPlease provide a due date in the format of YYYY-MM-DD\n`, (date) => {
-                    newTask.dueDate = new Date(date);
+                    newTask.dueDate = (0, getValidDate_1.getValidDate)(list);
                     console.log(newTask);
                     list[taskId] = newTask;
                     (0, index_1.promptOptions)();

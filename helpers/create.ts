@@ -1,4 +1,5 @@
 import { promptOptions, Task, rl } from "../src/index";
+import { getValidDate } from "./getValidDate";
 
 /**
  * Helper function that creates a new task
@@ -36,7 +37,7 @@ export const createTask = (list: { [key: number]: Task }): void => {
         rl.question(
           `\nPlease provide a due date in the format of YYYY-MM-DD\n`,
           (date: string) => {
-            newTask.dueDate = new Date(date);
+            newTask.dueDate = getValidDate(list);
             console.log(newTask);
             list[taskId] = newTask;
 
