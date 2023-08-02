@@ -35,3 +35,12 @@ When updating and deleting tasks, find the task by its ID in your array.
 Make sure to use TypeScript types for all your variables and function return values. This will help you catch errors during development.
 
 Test your application by creating, reading, updating, and deleting tasks.
+
+
+
+# TO DO #
+- Refactor functions to use readline-sync lib where readline is still being used
+- Validate input in promptOptions function
+- Complete promptOptions loop when calling update/complete/read
+- Add notes where needed, update notes
+- Complete README file
