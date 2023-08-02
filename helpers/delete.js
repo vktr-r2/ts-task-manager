@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTask = void 0;
 const index_1 = require("../src/index");
+const validateTaskSelect_1 = require("./validateTaskSelect");
 /**
  * Function to deletes an existing task and then return user to promptOptions
  * 1. Show list of current tasks
@@ -15,14 +16,8 @@ const index_1 = require("../src/index");
 //Helper function that deletes an existing task
 const deleteTask = (list) => {
     console.log(list);
-    //ASYNC TEMP WORKAROUND
-    setTimeout(() => {
-        //Ask user to input id for task to be deleted
-        index_1.rl.question(`\nPlease select which task you'd like to delete\n`, (id) => {
-            delete list[id];
-            (0, index_1.promptOptions)();
-        });
-    }),
-        1; //setTimeout length for TEMP WORKAROUND
+    const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "delete");
+    delete list[id];
+    (0, index_1.promptOptions)();
 };
 exports.deleteTask = deleteTask;

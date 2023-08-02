@@ -15,7 +15,7 @@ import { validateTaskSelection } from "./validateTaskSelect";
 export const completeTask = (list: { [key: string]: Task }): void => {
   console.log(list);
 
-  const id: string = validateTaskSelection(list);
+  const id: string = validateTaskSelection(list, "mark complete/incomplete");
 
   list[id].status === "Incomplete"
     ? (list[id].status = "Complete")

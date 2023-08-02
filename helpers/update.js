@@ -8,7 +8,7 @@ const getValidDate_1 = require("./getValidDate");
 const validateTaskSelect_1 = require("./validateTaskSelect");
 const updateTask = (list) => {
     console.log(list);
-    const id = (0, validateTaskSelect_1.validateTaskSelection)(list);
+    const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "update");
     console.log(list[id]);
     const fieldsToUpdate = [
         { key: "title", message: "Please enter new title\n" },

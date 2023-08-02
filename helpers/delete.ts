@@ -1,4 +1,5 @@
 import { promptOptions, Task, rl } from "../src/index";
+import { validateTaskSelection } from "./validateTaskSelect";
 
 /**
  * Function to deletes an existing task and then return user to promptOptions
@@ -12,18 +13,11 @@ import { promptOptions, Task, rl } from "../src/index";
  */
 
 //Helper function that deletes an existing task
-export const deleteTask = (list: { [key: number]: Task }): void => {
+export const deleteTask = (list: { [key: string]: Task }): void => {
   console.log(list);
-  //ASYNC TEMP WORKAROUND
-  setTimeout(() => {
-    //Ask user to input id for task to be deleted
-    rl.question(
-      `\nPlease select which task you'd like to delete\n`,
-      (id: number) => {
-        delete list[id];
-        promptOptions();
-      }
-    );
-  }),
-    1; //setTimeout length for TEMP WORKAROUND
+
+  const id: string = validateTaskSelection(list, "delete");
+
+  delete list[id];
+  promptOptions();
 };

@@ -15,7 +15,7 @@ const validateTaskSelect_1 = require("./validateTaskSelect");
  */
 const completeTask = (list) => {
     console.log(list);
-    const id = (0, validateTaskSelect_1.validateTaskSelection)(list);
+    const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "mark complete/incomplete");
     list[id].status === "Incomplete"
         ? (list[id].status = "Complete")
         : (list[id].status = "Incomplete");

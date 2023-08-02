@@ -8,7 +8,7 @@ import { validateTaskSelection } from "./validateTaskSelect";
 export const updateTask = (list: { [key: string]: Task }): void => {
   console.log(list);
 
-  const id = validateTaskSelection(list)
+  const id = validateTaskSelection(list, "update")
   
   console.log(list[id]);
 
