@@ -1,4 +1,6 @@
-import { promptOptions, Task, rl } from "../src/index";
+const readlineSync = require("readline-sync");
+
+import { promptOptions, Task } from "../src/index";
 import { getValidDate } from "../helpers/getValidDate";
 
 /**
@@ -27,25 +29,12 @@ export const createTask = (list: { [key: number]: Task }): void => {
     dueDate: new Date(),
   };
 
-  setTimeout(() => {
-    rl.question(`\nPlease provide a title\n`, (title: string) => {
-      newTask.title = title;
+  
+  newTask.title = readlineSync.question(`\nPlease provide a title\n`)
+  newTask.note = readlineSync.question(`\nPlease provide a note\n`)
+  newTask.dueDate = new Date(getValidDate(list));
+  console.log(newTask);
+  list[taskId] = newTask;
+  promptOptions();
 
-      rl.question(`\nPlease provide a note\n`, (note: string) => {
-        newTask.note = note;
-
-        rl.question(
-          `\nPlease provide a due date in the format of YYYY-MM-DD\n`,
-          (date: string) => {
-            newTask.dueDate = new Date(getValidDate(list));
-            console.log(newTask);
-            list[taskId] = newTask;
-
-            promptOptions();
-          }
-        );
-      });
-    });
-  }),
-    1;
 };
