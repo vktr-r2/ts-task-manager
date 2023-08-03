@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.promptOptions = exports.taskList = exports.rl = void 0;
+exports.promptOptions = exports.taskList = void 0;
 const readlineSync = require("readline-sync");
-const readline = require("readline");
-exports.rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false,
-});
+// const readline = require("readline");
+// export const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+//   terminal: false,
+// });
 const create_1 = require("../modules/create");
 const read_1 = require("../modules/read");
 const exit_1 = require("../modules/exit");

@@ -1,11 +1,4 @@
 const readlineSync = require("readline-sync");
-const readline = require("readline");
-
-export const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
 
 import { createTask } from '../modules/create'
 import { readTasks } from '../modules/read';
@@ -67,11 +60,6 @@ export const promptOptions = (): void => {
     
   };
 
-
-//Helper function that closes the Task Manager app in terminal
-// const closeTaskManager = (): void => {
-//   rl.close();
-// }
 
 console.log(`\n ~~~ Welcome to Task Manager! ~~~`);
 promptOptions();
