@@ -46,6 +46,7 @@ const promptOptions = () => {
         input === "4" && (0, complete_1.completeTask)(exports.taskList);
         input === "5" && (0, delete_1.deleteTask)(exports.taskList);
         input === "6" && (0, exit_1.closeTaskManager)();
+        input !== "1" && input !== "2" && input !== "3" && input !== "4" && input !== "5" && input !== "6" && (0, exports.promptOptions)();
     });
 };
 exports.promptOptions = promptOptions;
