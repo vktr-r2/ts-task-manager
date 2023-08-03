@@ -28,7 +28,7 @@ const createTask = (list) => {
     };
     newTask.title = readlineSync.question(`\nPlease provide a title\n`);
     newTask.note = readlineSync.question(`\nPlease provide a note\n`);
-    newTask.dueDate = new Date((0, getValidDate_1.getValidDate)(list));
+    newTask.dueDate = (0, getValidDate_1.getValidDate)(list);
     console.log(newTask);
     list[taskId] = newTask;
     (0, index_1.promptOptions)();

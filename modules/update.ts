@@ -36,7 +36,7 @@ export const updateTask = (list: { [key: string]: Task }): void => {
       }
 
       if (key === "dueDate") {
-        list[id].dueDate = new Date(getValidDate(list));
+        list[id].dueDate = getValidDate(list);
       }
     }
   }

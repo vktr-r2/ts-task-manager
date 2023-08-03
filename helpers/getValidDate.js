@@ -4,30 +4,23 @@ exports.getValidDate = void 0;
 const readlineSync = require("readline-sync");
 /**
  * Helper function that validates user input string for dueDate
- * 1. Set regex for date format pattern YYYY/MM/DD
- * 2. Test if regex matches date input.  Return false if not
- * 3. Parse date string into separate integers
- * 4. Check if separate integers fall into range that makes sense.  Return false if not
- * 5. Create new Date object with date, month, year integers
- * 6. Check new Date object to see if date exists.  Return false if not
- * 7. Check that date is current or future.  Return false if not
- * 8. Return true if input string passes all previous tests
+ * 1. Set regex pattern
+ * 2. Test if regex matches date input
+ * 3. Parse date string into separate ints
+ * 5. Create new Date object with date, month, year ints
+ * 6. Check Date object to see if date exists.
+ * 7. Check that date is current or future.
+ * 8. Return Date object if input string passes all previous tests
  *
  * @param dateInput string: input from user for dueDate
- * @returns boolean: true if valid date input, false otherwise
+ * @returns Date: date object to be stored as task dueDate
  */
 const getValidDate = (list) => {
     let dateInput = readlineSync.question("\nPlease enter a current or future due date (YYYY/MM/DD format)\n");
-    // ^ start-of-string anchor: tells regex to start pattern match from first char
-    // \d digits: checks for char 0-9
-    // {4} quantified: previous character must appear this many times
-    // \/\ : forward slash has special meaning so much be escaped with backslash before and after
-    // $ end-of-string anchor: tells regex pattern match should end on last char
-    // REGEX SUMMARY: 4 digits / 2 digits / 2 digits
+    // Regex pattern summary: 4 digits / 2 digits / 2 digits
     const dateRegex = /^\d{4}\/\d{2}\/\d{2}$/;
-    // Check for string pattern.  IF falsy, return FALSE
+    // Check for string pattern.  If falsy, return recursive call to getValidDate()
     if (!dateRegex.test(dateInput)) {
-        console.log("Failed regex");
         return (0, exports.getValidDate)(list);
     }
     // Parse date into integers parts
@@ -35,29 +28,19 @@ const getValidDate = (list) => {
     const year = parseInt(dateParts[0], 10);
     const month = parseInt(dateParts[1], 10);
     const day = parseInt(dateParts[2], 10);
-    // Check the month/year ranges
-    if (year < 1000 || year > 3000 || month <= 0 || month > 12 || day <= 0 || day > 31) {
-        (0, exports.getValidDate)(list);
-    }
-    // Create new date object.  Months are 0 indexed so JS month is always -1
+    // Create new date object.  Months are 0 indexed so month -1 used
     const date = new Date(year, month - 1, day);
-    // Check validity of date integer parts to see if date exists (Check against Feb 30th, Nov 31st ex)
+    // Check validity of date integer parts.  If falsy, return recursive call to getValidDate()
     if (!(date.getFullYear() === year && date.getMonth() + 1 === month && date.getDate() === day)) {
-        console.log("failed valid date test");
         return (0, exports.getValidDate)(list);
     }
-    // Check that date has not passed
-    const today = new Date(); // todays date object set date and time to current time
-    today.setHours(0, 0, 0, 0); // reset time to midnight (hours, mins, seconds, miliseconds)
-    if (date < today) { // check if date is before todays date
-        console.log("failed past date test");
+    // Check that date has not passed.  If true, return recursive call to getValidDate()
+    const today = new Date(); // new Date object "today"
+    today.setHours(0, 0, 0, 0); // reset "today" time to midnight
+    if (date < today) { // check if "date" obj is before "today" obj
         return (0, exports.getValidDate)(list);
     }
-    //Date is valid
-    console.log("reached valid date return");
-    return dateInput;
+    //Date is valid, return date object
+    return date;
 };
 exports.getValidDate = getValidDate;
-//Date input correctly from start is accepted
-//No date input, then date input incorrectly > loop
-//Previous date input, then date input correctly > previous date is added to the object

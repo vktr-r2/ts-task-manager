@@ -27,7 +27,7 @@ const updateTask = (list) => {
                 list[id][key] = newFieldValue;
             }
             if (key === "dueDate") {
-                list[id].dueDate = new Date((0, getValidDate_1.getValidDate)(list));
+                list[id].dueDate = (0, getValidDate_1.getValidDate)(list);
             }
         }
     }

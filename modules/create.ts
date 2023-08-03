@@ -32,7 +32,7 @@ export const createTask = (list: { [key: number]: Task }): void => {
   
   newTask.title = readlineSync.question(`\nPlease provide a title\n`)
   newTask.note = readlineSync.question(`\nPlease provide a note\n`)
-  newTask.dueDate = new Date(getValidDate(list));
+  newTask.dueDate = getValidDate(list);
   console.log(newTask);
   list[taskId] = newTask;
   promptOptions();
