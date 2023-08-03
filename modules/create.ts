@@ -1,5 +1,5 @@
 import { promptOptions, Task, rl } from "../src/index";
-import { getValidDate } from "./getValidDate";
+import { getValidDate } from "../helpers/getValidDate";
 
 /**
  * Helper function that creates a new task

@@ -46,7 +46,7 @@ export const getValidDate = (list: { [key: string]: Task }): string => {
 
   // Check the month/year ranges
   if (year < 1000 || year > 3000 || month <= 0 || month > 12 || day <= 0 || day > 31) {
-    // getValidDate(list);
+    getValidDate(list);
   }
 
   // Create new date object.  Months are 0 indexed so JS month is always -1

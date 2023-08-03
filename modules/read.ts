@@ -8,5 +8,5 @@ import { promptOptions, Task } from "../src/index";
 
 export const readTasks = (list: {[key:number]: Task}): void => {
   console.log(list);
-  setTimeout(()=> promptOptions(), 4000)
+  setTimeout(()=> promptOptions(), 4000);
 }

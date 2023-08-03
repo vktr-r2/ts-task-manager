@@ -1,5 +1,5 @@
-import { promptOptions, Task, rl } from "../src/index";
-import { validateTaskSelection } from "./validateTaskSelect";
+import { promptOptions, Task } from "../src/index";
+import { validateTaskSelection } from "../helpers/validateTaskSelect";
 
 /**
  * Helper function that completes/incompletes an existing task
@@ -20,5 +20,8 @@ export const completeTask = (list: { [key: string]: Task }): void => {
   list[id].status === "Incomplete"
     ? (list[id].status = "Complete")
     : (list[id].status = "Incomplete");
-  promptOptions();
+  
+  console.log(list[id]);
+
+  setTimeout(() => promptOptions(), 4000);
 };

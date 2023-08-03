@@ -19,6 +19,7 @@ const completeTask = (list) => {
     list[id].status === "Incomplete"
         ? (list[id].status = "Complete")
         : (list[id].status = "Incomplete");
-    (0, index_1.promptOptions)();
+    console.log(list[id]);
+    setTimeout(() => (0, index_1.promptOptions)(), 4000);
 };
 exports.completeTask = completeTask;

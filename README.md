@@ -41,7 +41,12 @@ Test your application by creating, reading, updating, and deleting tasks.
 # TO DO #
 - Refactor functions to use readline-sync lib where readline is still being used
 - Validate input in promptOptions function                                            ==>> DONE
-- Complete promptOptions loop when calling update/complete/read
+- Complete promptOptions loop when calling 
+  - create
+  - edit
+  - complete
+  - delete
+
 - Add notes where needed, update notes
 - Adjust file organization and naming convention
 - Complete README file

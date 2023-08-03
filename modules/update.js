@@ -22,7 +22,7 @@ const updateTask = (list) => {
         const updateField = (0, validateYOrN_1.validateYOrN)(`\nWould you like to update the ${field.key}?  (Y or N)\n`);
         if (updateField === "Y") {
             const key = field.key;
-            if ((key === "title") || key === "note") {
+            if (key === "title" || key === "note") {
                 let newFieldValue = readlineSync.question(`\n${field.message}\n`);
                 list[id][key] = newFieldValue;
             }
@@ -32,8 +32,6 @@ const updateTask = (list) => {
         }
     }
     console.log(list[id]);
-    // setTimeout(() => 
-    (0, index_1.promptOptions)();
-    // , 4000);
+    setTimeout(() => (0, index_1.promptOptions)(), 4000);
 };
 exports.updateTask = updateTask;

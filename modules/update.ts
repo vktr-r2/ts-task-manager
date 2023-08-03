@@ -1,15 +1,15 @@
 const readlineSync = require("readline-sync");
 
 import { Task, promptOptions } from "../src/index";
-import { validateYOrN } from "./validateYOrN";
-import { getValidDate } from "./getValidDate";
-import { validateTaskSelection } from "./validateTaskSelect";
+import { validateYOrN } from "../helpers/validateYOrN";
+import { getValidDate } from "../helpers/getValidDate";
+import { validateTaskSelection } from "../helpers/validateTaskSelect";
 
 export const updateTask = (list: { [key: string]: Task }): void => {
   console.log(list);
 
-  const id = validateTaskSelection(list, "update")
-  
+  const id = validateTaskSelection(list, "update");
+
   console.log(list[id]);
 
   const fieldsToUpdate: { key: string; message: string }[] = [
@@ -27,7 +27,7 @@ export const updateTask = (list: { [key: string]: Task }): void => {
     );
     if (updateField === "Y") {
       const key = field.key as keyof Task;
-      if (( key === "title") || key === "note") {
+      if (key === "title" || key === "note") {
         let newFieldValue: string = readlineSync.question(
           `\n${field.message}\n`
         );
@@ -36,14 +36,12 @@ export const updateTask = (list: { [key: string]: Task }): void => {
       }
 
       if (key === "dueDate") {
-        list[id].dueDate = new Date (getValidDate(list));
+        list[id].dueDate = new Date(getValidDate(list));
       }
     }
   }
 
   console.log(list[id]);
 
-  // setTimeout(() => 
-  promptOptions()
-  // , 4000);
+  setTimeout(() => promptOptions(), 4000);
 };

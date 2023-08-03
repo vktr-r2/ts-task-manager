@@ -18,6 +18,6 @@ const deleteTask = (list) => {
     console.log(list);
     const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "delete");
     delete list[id];
-    (0, index_1.promptOptions)();
+    setTimeout(index_1.promptOptions, 0);
 };
 exports.deleteTask = deleteTask;

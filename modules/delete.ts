@@ -1,5 +1,5 @@
-import { promptOptions, Task, rl } from "../src/index";
-import { validateTaskSelection } from "./validateTaskSelect";
+import { promptOptions, Task } from "../src/index";
+import { validateTaskSelection } from "../helpers/validateTaskSelect";
 
 /**
  * Function to deletes an existing task and then return user to promptOptions
@@ -19,5 +19,5 @@ export const deleteTask = (list: { [key: string]: Task }): void => {
   const id: string = validateTaskSelection(list, "delete");
 
   delete list[id];
-  promptOptions();
+  setTimeout(promptOptions, 0);
 };

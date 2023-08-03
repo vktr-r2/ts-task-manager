@@ -1,6 +1,6 @@
 const readlineSync = require("readline-sync");
 
-import { Task, promptOptions } from "../src/index";
+import { Task } from "../src/index";
 
 export const validateTaskSelection = (list: { [key: string]: Task }, action: string): string => {
 
