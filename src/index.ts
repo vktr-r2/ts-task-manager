@@ -1,3 +1,4 @@
+const readlineSync = require("readline-sync");
 const readline = require("readline");
 
 export const rl = readline.createInterface({
@@ -6,12 +7,12 @@ export const rl = readline.createInterface({
   terminal: false,
 });
 
-import { createTask } from '../helpers/create'
-import { readTasks } from '../helpers/read';
-import { closeTaskManager } from '../helpers/exit';
-import { updateTask } from '../helpers/update';
-import { deleteTask } from '../helpers/delete';
-import { completeTask } from '../helpers/complete';
+import { createTask } from '../modules/create'
+import { readTasks } from '../modules/read';
+import { closeTaskManager } from '../modules/exit';
+import { updateTask } from '../modules/update';
+import { deleteTask } from '../modules/delete';
+import { completeTask } from '../modules/complete';
 
 
 //Declare custom Task type
@@ -45,7 +46,8 @@ export const taskList: {[key:string]: Task} = {
 export const promptOptions = (): void => {
 
   //Trigger initial question for user to select option
-  rl.question(
+  const input: string = readlineSync.question(
+
     ` \nPlease enter one of the following options: \n
     1 - View current tasks \n
     2 - Add new task \n
@@ -53,8 +55,8 @@ export const promptOptions = (): void => {
     4 - Mark task as complete/incomplete \n
     5 - Delete task \n
     6 - Close Task Manager \n
-    `,
-    (input: string): void => {
+    `)
+    
       input === "1" && readTasks(taskList);
       input === "2" && createTask(taskList);
       input === "3" && updateTask(taskList);
@@ -62,8 +64,7 @@ export const promptOptions = (): void => {
       input === "5" && deleteTask(taskList);
       input === "6" && closeTaskManager();
       input !== "1" && input !== "2" && input !== "3" && input !== "4" && input !== "5" && input !== "6" && promptOptions();
-    }
-    );
+    
   };
 
 
