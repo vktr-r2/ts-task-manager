@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.completeTask = void 0;
 const index_1 = require("../src/index");
-const validateTaskSelect_1 = require("./validateTaskSelect");
+const validateTaskSelect_1 = require("../helpers/validateTaskSelect");
 /**
  * Helper function that completes/incompletes an existing task
  * 1. Log taskList

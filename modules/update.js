@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateTask = void 0;
 const readlineSync = require("readline-sync");
 const index_1 = require("../src/index");
-const validateYOrN_1 = require("./validateYOrN");
-const getValidDate_1 = require("./getValidDate");
-const validateTaskSelect_1 = require("./validateTaskSelect");
+const validateYOrN_1 = require("../helpers/validateYOrN");
+const getValidDate_1 = require("../helpers/getValidDate");
+const validateTaskSelect_1 = require("../helpers/validateTaskSelect");
 const updateTask = (list) => {
     console.log(list);
     const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "update");
