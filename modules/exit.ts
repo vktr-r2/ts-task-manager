@@ -1,4 +1,3 @@
-import { rl } from "../src/index";
 
 /**
 * Function to exit readline in CLI
@@ -6,5 +5,5 @@ import { rl } from "../src/index";
 */
 
 export const closeTaskManager = (): void => {
-  rl.close();
+  process.exit()
 }
