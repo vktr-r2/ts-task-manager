@@ -11,10 +11,13 @@ const readlineSync = require("readline-sync");
  */
 
 export const validateYOrN = (question: string): string => {
+
   const input: string = readlineSync.question(question).toUpperCase();
+
   if (input !== "Y" && input !== "N") {
     console.log("Invalid input.  Please enter 'Y' or 'N'.");
     return validateYOrN(question);
   }
+  
   return input;
 };
