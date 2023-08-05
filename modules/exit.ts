@@ -5,5 +5,7 @@
 */
 
 export const closeTaskManager = (): void => {
+
   process.exit()
+  
 }

@@ -36,6 +36,13 @@ export const taskList: {[key:string]: Task} = {
   },
 };
 
+/**
+ * Function presents user with main menu options, receives input, and calls appropriate module function
+ * 1. Ask user to select option, and store repsonse in input string
+ * 2. Validate input string using array of hard coded options, and check that input is included in array.  If not, call promptOptions recursively
+ * 3. Use short circuit operator to call apropriate module function
+ */
+
 export const promptOptions = (): void => {
 
   //Trigger initial question for user to select option
@@ -50,9 +57,10 @@ export const promptOptions = (): void => {
     6 - Close Task Manager \n
     `)
 
+      //Validate input
       const availOptions = ["1", "2", "3", "4", "5", "6"]
       !availOptions.includes(input) && promptOptions();
-      
+
       input === "1" && readTasks(taskList);
       input === "2" && createTask(taskList);
       input === "3" && updateTask(taskList);
