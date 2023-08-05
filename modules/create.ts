@@ -19,8 +19,7 @@ export const createTask = (list: TaskList): void => {
 
   //New taskId is set to greatest current taskID + 1
   const taskIdsArray: number[] = Object.keys(list).map(Number);
-  taskIdsArray.sort((a: number, b: number) => a - b);
-  const taskId: number = taskIdsArray[taskIdsArray.length - 1] + 1;
+  const taskId: number = taskIdsArray.sort((a: number, b: number) => b - a)[0] + 1;
 
   //Create template newTask Task object
   const newTask: Task = {
@@ -36,6 +35,7 @@ export const createTask = (list: TaskList): void => {
   newTask.note = readlineSync.question(`\nPlease provide a note\n`)
   newTask.dueDate = getValidDate(list);
 
+  //Log and add newTask to existing TaskList object
   console.log(newTask);
   list[taskId] = newTask;
 
