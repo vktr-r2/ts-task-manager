@@ -9,15 +9,16 @@ import { validateTaskSelection } from "../helpers/validateTaskSelect";
  * 4. Prompt user with promptOptions again
  *
  * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
- * @return {Promise} A Promise that resolves to void and then calls promptOptions.
+ * @return void
  */
 
-//Helper function that deletes an existing task
 export const deleteTask = (list: { [key: string]: Task }): void => {
+
   console.log(list);
 
   const id: string = validateTaskSelection(list, "delete");
 
   delete list[id];
-  setTimeout(promptOptions, 0);
+
+  promptOptions();
 };

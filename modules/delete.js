@@ -11,13 +11,12 @@ const validateTaskSelect_1 = require("../helpers/validateTaskSelect");
  * 4. Prompt user with promptOptions again
  *
  * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
- * @return {Promise} A Promise that resolves to void and then calls promptOptions.
+ * @return void
  */
-//Helper function that deletes an existing task
 const deleteTask = (list) => {
     console.log(list);
     const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "delete");
     delete list[id];
-    setTimeout(index_1.promptOptions, 0);
+    (0, index_1.promptOptions)();
 };
 exports.deleteTask = deleteTask;
