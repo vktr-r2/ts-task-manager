@@ -1,4 +1,4 @@
-import { promptOptions, Task } from "../src/index";
+import { promptOptions, TaskList } from "../src/index";
 import { validateTaskSelection } from "../helpers/validateTaskSelect";
 
 /**
@@ -8,11 +8,11 @@ import { validateTaskSelection } from "../helpers/validateTaskSelect";
  * 3. Delete corresponding Task object from taskList
  * 4. Prompt user with promptOptions again
  *
- * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return void
  */
 
-export const deleteTask = (list: { [key: string]: Task }): void => {
+export const deleteTask = (list: TaskList): void => {
 
   console.log(list);
 

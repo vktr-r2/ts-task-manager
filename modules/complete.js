@@ -11,7 +11,7 @@ const validateTaskSelect_1 = require("../helpers/validateTaskSelect");
  * 4. Console log updated task
  * 5. Prompt user with promptOptions again
  *
- * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return void
  */
 const completeTask = (list) => {

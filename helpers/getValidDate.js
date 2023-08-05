@@ -12,8 +12,8 @@ const readlineSync = require("readline-sync");
  * 7. Check that date is current or future.
  * 8. Return Date object if input string passes all previous tests
  *
- * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
- * @returns Date: date object to be stored as task dueDate
+ * @param {TaskList} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @returns {Date} date object to be stored as task dueDate
  */
 const getValidDate = (list) => {
     let dateInput = readlineSync.question("\nPlease enter a current or future due date (YYYY/MM/DD format)\n");

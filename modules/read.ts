@@ -1,4 +1,4 @@
-import { promptOptions, Task } from "../src/index";
+import { promptOptions, TaskList } from "../src/index";
 
 /**
  * Function logs taskList to console for user to read.  Give user promptOptions after 4 seconds.
@@ -6,9 +6,9 @@ import { promptOptions, Task } from "../src/index";
  *  @return void
  */
 
-export const readTasks = (list: {[key:number]: Task}): void => {
+export const readTasks = (list: TaskList): void => {
 
   console.log(list);
-  
+
   setTimeout(()=> promptOptions(), 4000);
 }

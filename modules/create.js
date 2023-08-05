@@ -12,7 +12,7 @@ const getValidDate_1 = require("../helpers/getValidDate");
  * 4. Log newTask and add to taskList object
  * 5. Prompt user with promptOptions again
  *
- * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return {Promise} A Promise that resolves to void and then calls promptOptions.
  */
 const createTask = (list) => {
@@ -28,7 +28,7 @@ const createTask = (list) => {
         status: index_1.TaskStatus.Incomplete,
         dueDate: new Date(),
     };
-    //
+    //Assign values to Task object keys
     newTask.title = readlineSync.question(`\nPlease provide a title\n`);
     newTask.note = readlineSync.question(`\nPlease provide a note\n`);
     newTask.dueDate = (0, getValidDate_1.getValidDate)(list);

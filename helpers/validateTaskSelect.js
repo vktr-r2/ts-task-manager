@@ -9,7 +9,7 @@ const readlineSync = require("readline-sync");
  * 3. Check if list.id is falsy, if so log error and call function recursively
  * 4. Return id
  *
- * @param {Object} list : The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list : The tasks to be read. The keys are numbers, and the values are Task objects.
  * @param action string : String to be used as template literal in question
  * @returns id string
  */

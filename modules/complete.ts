@@ -1,4 +1,4 @@
-import { promptOptions, Task, TaskStatus } from "../src/index";
+import { promptOptions, TaskList, TaskStatus } from "../src/index";
 import { validateTaskSelection } from "../helpers/validateTaskSelect";
 
 /**
@@ -9,11 +9,11 @@ import { validateTaskSelection } from "../helpers/validateTaskSelect";
  * 4. Console log updated task
  * 5. Prompt user with promptOptions again
  *
- * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return void
  */
 
-export const completeTask = (list: { [key: string]: Task }): void => {
+export const completeTask = (list: TaskList): void => {
   console.log(list);
 
   const id: string = validateTaskSelection(list, "mark complete/incomplete");

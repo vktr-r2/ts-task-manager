@@ -1,6 +1,6 @@
 const readlineSync = require("readline-sync");
 
-import { Task, promptOptions } from "../src/index";
+import { Task, TaskList, promptOptions } from "../src/index";
 import { validateYOrN } from "../helpers/validateYOrN";
 import { getValidDate } from "../helpers/getValidDate";
 import { validateTaskSelection } from "../helpers/validateTaskSelect";
@@ -19,7 +19,7 @@ import { validateTaskSelection } from "../helpers/validateTaskSelect";
  * @return void
  */
 
-export const updateTask = (list: { [key: string]: Task }): void => {
+export const updateTask = (list: TaskList): void => {
 
   console.log(list);
 

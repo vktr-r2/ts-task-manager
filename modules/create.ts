@@ -1,6 +1,6 @@
 const readlineSync = require("readline-sync");
 
-import { promptOptions, Task, TaskStatus } from "../src/index";
+import { promptOptions, Task, TaskList, TaskStatus } from "../src/index";
 import { getValidDate } from "../helpers/getValidDate";
 
 /**
@@ -11,11 +11,11 @@ import { getValidDate } from "../helpers/getValidDate";
  * 4. Log newTask and add to taskList object
  * 5. Prompt user with promptOptions again
  * 
- * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return {Promise} A Promise that resolves to void and then calls promptOptions.
  */
 
-export const createTask = (list: { [key: number]: Task }): void => {
+export const createTask = (list: TaskList): void => {
 
   //New taskId is set to greatest current taskID + 1
   const taskIdsArray: number[] = Object.keys(list).map(Number);
@@ -31,7 +31,7 @@ export const createTask = (list: { [key: number]: Task }): void => {
     dueDate: new Date(),
   };
 
-  //
+  //Assign values to Task object keys
   newTask.title = readlineSync.question(`\nPlease provide a title\n`)
   newTask.note = readlineSync.question(`\nPlease provide a note\n`)
   newTask.dueDate = getValidDate(list);

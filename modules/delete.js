@@ -10,7 +10,7 @@ const validateTaskSelect_1 = require("../helpers/validateTaskSelect");
  * 3. Delete corresponding Task object from taskList
  * 4. Prompt user with promptOptions again
  *
- * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return void
  */
 const deleteTask = (list) => {

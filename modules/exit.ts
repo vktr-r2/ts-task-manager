@@ -1,4 +1,3 @@
-
 /**
 * Function to exit program in CLI
 * @returns void

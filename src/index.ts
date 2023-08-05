@@ -23,8 +23,12 @@ export type Task = {
   [key: string]: string | number | Date | TaskStatus;
 };
 
+export interface TaskList {
+  [key:string]: Task
+}
+
 //Declare taskList object to store Task objects w/ two default Task objects
-export const taskList: {[key:string]: Task} = {
+export const taskList: TaskList = {
   "1": {
     id: 1,
     title: "Test",
@@ -60,7 +64,7 @@ export const promptOptions = (): void => {
     5 - Delete task \n
     6 - Close Task Manager \n
     `)
-    
+
     switch(input) {
       case "1": readTasks(taskList); break;
       case "2": createTask(taskList); break;

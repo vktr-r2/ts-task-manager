@@ -1,6 +1,6 @@
 const readlineSync = require("readline-sync");
 
-import { Task } from "../src/index";
+import { TaskList } from "../src/index";
 
 /**
  * Function validates that user has selected an existing task id, and if so returns the id as string
@@ -9,12 +9,12 @@ import { Task } from "../src/index";
  * 3. Check if list.id is falsy, if so log error and call function recursively
  * 4. Return id
  * 
- * @param {Object} list : The tasks to be read. The keys are numbers, and the values are Task objects.
+ * @param {TaskList} list : The tasks to be read. The keys are numbers, and the values are Task objects.
  * @param action string : String to be used as template literal in question
  * @returns id string
  */
 
-export const validateTaskSelection = (list: { [key: string]: Task }, action: string): string => {
+export const validateTaskSelection = (list: TaskList, action: string): string => {
   
   const id: string = readlineSync.question(
     `\nPlease enter ID for task you would like to ${action}\n`
