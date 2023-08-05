@@ -10,7 +10,7 @@ const readlineSync = require("readline-sync");
  * @returns string: user response to the question string
  */
 
-export const validateYOrN = (question: string): string => {
+export const validateYOrN = (question: string): "Y" | "N" => {
 
   const input: string = readlineSync.question(question).toUpperCase();
 
