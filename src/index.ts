@@ -49,14 +49,16 @@ export const promptOptions = (): void => {
     5 - Delete task \n
     6 - Close Task Manager \n
     `)
-    
+
+      const availOptions = ["1", "2", "3", "4", "5", "6"]
+      !availOptions.includes(input) && promptOptions();
+      
       input === "1" && readTasks(taskList);
       input === "2" && createTask(taskList);
       input === "3" && updateTask(taskList);
       input === "4" && completeTask(taskList);
       input === "5" && deleteTask(taskList);
       input === "6" && closeTaskManager();
-      input !== "1" && input !== "2" && input !== "3" && input !== "4" && input !== "5" && input !== "6" && promptOptions();
     
   };
 

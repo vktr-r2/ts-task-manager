@@ -2,12 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.promptOptions = exports.taskList = void 0;
 const readlineSync = require("readline-sync");
-// const readline = require("readline");
-// export const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-//   terminal: false,
-// });
 const create_1 = require("../modules/create");
 const read_1 = require("../modules/read");
 const exit_1 = require("../modules/exit");
@@ -41,18 +35,16 @@ const promptOptions = () => {
     5 - Delete task \n
     6 - Close Task Manager \n
     `);
+    const availOptions = ["1", "2", "3", "4", "5", "6"];
+    !availOptions.includes(input) && (0, exports.promptOptions)();
     input === "1" && (0, read_1.readTasks)(exports.taskList);
     input === "2" && (0, create_1.createTask)(exports.taskList);
     input === "3" && (0, update_1.updateTask)(exports.taskList);
     input === "4" && (0, complete_1.completeTask)(exports.taskList);
     input === "5" && (0, delete_1.deleteTask)(exports.taskList);
     input === "6" && (0, exit_1.closeTaskManager)();
-    input !== "1" && input !== "2" && input !== "3" && input !== "4" && input !== "5" && input !== "6" && (0, exports.promptOptions)();
+    // input !== "1" && input !== "2" && input !== "3" && input !== "4" && input !== "5" && input !== "6" && promptOptions();
 };
 exports.promptOptions = promptOptions;
-//Helper function that closes the Task Manager app in terminal
-// const closeTaskManager = (): void => {
-//   rl.close();
-// }
 console.log(`\n ~~~ Welcome to Task Manager! ~~~`);
 (0, exports.promptOptions)();
