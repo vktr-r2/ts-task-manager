@@ -6,7 +6,8 @@ import { validateTaskSelection } from "../helpers/validateTaskSelect";
  * 1. Log taskList
  * 2. Ask user to input Id for task to be completed/incompleted
  * 3. Ternary oeprator to toggle value as complete/incomplete
- * 4. Prompt user with promptOptions again
+ * 4. Console log updated task
+ * 5. Prompt user with promptOptions again
  *
  * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @return void
