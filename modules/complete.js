@@ -17,9 +17,9 @@ const validateTaskSelect_1 = require("../helpers/validateTaskSelect");
 const completeTask = (list) => {
     console.log(list);
     const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "mark complete/incomplete");
-    list[id].status === "Incomplete"
-        ? (list[id].status = "Complete")
-        : (list[id].status = "Incomplete");
+    list[id].status === index_1.TaskStatus.Incomplete
+        ? (list[id].status = index_1.TaskStatus.Complete)
+        : (list[id].status = index_1.TaskStatus.Incomplete);
     console.log(list[id]);
     setTimeout(() => (0, index_1.promptOptions)(), 4000);
 };

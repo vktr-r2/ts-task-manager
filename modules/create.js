@@ -25,7 +25,7 @@ const createTask = (list) => {
         id: taskId,
         title: "",
         note: "",
-        status: "Incomplete",
+        status: index_1.TaskStatus.Incomplete,
         dueDate: new Date(),
     };
     //

@@ -1,6 +1,6 @@
 const readlineSync = require("readline-sync");
 
-import { promptOptions, Task } from "../src/index";
+import { promptOptions, Task, TaskStatus } from "../src/index";
 import { getValidDate } from "../helpers/getValidDate";
 
 /**
@@ -27,7 +27,7 @@ export const createTask = (list: { [key: number]: Task }): void => {
     id: taskId,
     title: "",
     note: "",
-    status: "Incomplete",
+    status: TaskStatus.Incomplete,
     dueDate: new Date(),
   };
 

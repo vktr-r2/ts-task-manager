@@ -1,4 +1,4 @@
-import { promptOptions, Task } from "../src/index";
+import { promptOptions, Task, TaskStatus } from "../src/index";
 import { validateTaskSelection } from "../helpers/validateTaskSelect";
 
 /**
@@ -18,9 +18,9 @@ export const completeTask = (list: { [key: string]: Task }): void => {
 
   const id: string = validateTaskSelection(list, "mark complete/incomplete");
 
-  list[id].status === "Incomplete"
-    ? (list[id].status = "Complete")
-    : (list[id].status = "Incomplete");
+  list[id].status === TaskStatus.Incomplete
+    ? (list[id].status = TaskStatus.Complete)
+    : (list[id].status = TaskStatus.Incomplete);
   
   console.log(list[id]);
 
