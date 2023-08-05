@@ -34,12 +34,11 @@ exports.taskList = {
 /**
  * Function presents user with main menu options, receives input, and calls appropriate module function
  * 1. Ask user to select option, and store repsonse in input string
- * 2. Validate input string using array of hard coded options, and check that input is included in array.  If not, call promptOptions recursively
- * 3. Use short circuit operator to call appropriate module function
+ * 2. Switch/case statement to validate input and call appropriate module function
  */
 const promptOptions = () => {
     //Trigger initial question for user to select option
-    const input = readlineSync.question(` \nPlease enter one of the following options: \n
+    const input = readlineSync.question(` \nPlease select one of the following options: \n
     1 - View current tasks \n
     2 - Add new task \n
     3 - Edit existing task \n
@@ -47,15 +46,27 @@ const promptOptions = () => {
     5 - Delete task \n
     6 - Close Task Manager \n
     `);
-    //Validate input
-    const availOptions = ["1", "2", "3", "4", "5", "6"];
-    !availOptions.includes(input) && (0, exports.promptOptions)();
-    input === "1" && (0, read_1.readTasks)(exports.taskList);
-    input === "2" && (0, create_1.createTask)(exports.taskList);
-    input === "3" && (0, update_1.updateTask)(exports.taskList);
-    input === "4" && (0, complete_1.completeTask)(exports.taskList);
-    input === "5" && (0, delete_1.deleteTask)(exports.taskList);
-    input === "6" && (0, exit_1.closeTaskManager)();
+    switch (input) {
+        case "1":
+            (0, read_1.readTasks)(exports.taskList);
+            break;
+        case "2":
+            (0, create_1.createTask)(exports.taskList);
+            break;
+        case "3":
+            (0, update_1.updateTask)(exports.taskList);
+            break;
+        case "4":
+            (0, complete_1.completeTask)(exports.taskList);
+            break;
+        case "5":
+            (0, delete_1.deleteTask)(exports.taskList);
+            break;
+        case "6":
+            (0, exit_1.closeTaskManager)();
+            break;
+        default: (0, exports.promptOptions)();
+    }
 };
 exports.promptOptions = promptOptions;
 // Entry into app
