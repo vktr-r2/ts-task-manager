@@ -12,7 +12,7 @@ import { Task } from "../src/index";
  * 7. Check that date is current or future.  
  * 8. Return Date object if input string passes all previous tests
  * 
- * @param dateInput string: input from user for dueDate
+ * @param {Object} list The tasks to be read. The keys are numbers, and the values are Task objects.
  * @returns Date: date object to be stored as task dueDate
  */
 
