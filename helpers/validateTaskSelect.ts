@@ -21,7 +21,7 @@ export const validateTaskSelection = (list: TaskList, action: string): string =>
   );
   
   if (!list[id]) {
-    console.log("Issue with ID input");
+    console.log("\nIssue with ID input");
     return validateTaskSelection(list, action);
   }
 

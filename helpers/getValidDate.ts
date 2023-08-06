@@ -27,6 +27,7 @@ export const getValidDate = (list: TaskList): Date => {
 
   // Check for string pattern.  If falsy, return recursive call to getValidDate()
   if (!dateRegex.test(dateInput)) {
+    console.log("\nIncorrect format.")
     return getValidDate(list);
   }
 
@@ -41,13 +42,15 @@ export const getValidDate = (list: TaskList): Date => {
 
   // Check validity of date integer parts.  If falsy, return recursive call to getValidDate()
   if (!(date.getFullYear()=== year && date.getMonth() + 1 === month && date.getDate() === day)) {
+    console.log("\nNot a valid date")
     return getValidDate(list);
   }
-
+  
   // Check that date has not passed.  If true, return recursive call to getValidDate()
   const today = new Date();   // new Date object "today"
   today.setHours(0,0,0,0,);   // reset "today" time to midnight
   if (date < today) {         // check if "date" obj is before "today" obj
+    console.log("\nDate is in the past.")
     return getValidDate(list);
   }
 

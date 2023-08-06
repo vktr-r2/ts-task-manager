@@ -21,6 +21,7 @@ const getValidDate = (list) => {
     const dateRegex = /^\d{4}\/\d{2}\/\d{2}$/;
     // Check for string pattern.  If falsy, return recursive call to getValidDate()
     if (!dateRegex.test(dateInput)) {
+        console.log("\nIncorrect format.  Please input date in YYYY/MM/DD format");
         return (0, exports.getValidDate)(list);
     }
     // Parse date into integers parts
@@ -32,12 +33,14 @@ const getValidDate = (list) => {
     const date = new Date(year, month - 1, day);
     // Check validity of date integer parts.  If falsy, return recursive call to getValidDate()
     if (!(date.getFullYear() === year && date.getMonth() + 1 === month && date.getDate() === day)) {
+        console.log("\nNot a valid date");
         return (0, exports.getValidDate)(list);
     }
     // Check that date has not passed.  If true, return recursive call to getValidDate()
     const today = new Date(); // new Date object "today"
     today.setHours(0, 0, 0, 0); // reset "today" time to midnight
     if (date < today) { // check if "date" obj is before "today" obj
+        console.log("\nDate is in the past.  Please provide future or current date");
         return (0, exports.getValidDate)(list);
     }
     //Date is valid, return date object
