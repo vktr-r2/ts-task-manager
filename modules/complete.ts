@@ -24,5 +24,5 @@ export const completeTask = (list: TaskList): void => {
   
   console.log(list[id]);
 
-  setTimeout(() => promptOptions(), 4000);
+  setTimeout(() => promptOptions(), 2500);
 };

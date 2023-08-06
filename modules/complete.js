@@ -21,6 +21,6 @@ const completeTask = (list) => {
         ? (list[id].status = index_1.TaskStatus.Complete)
         : (list[id].status = index_1.TaskStatus.Incomplete);
     console.log(list[id]);
-    setTimeout(() => (0, index_1.promptOptions)(), 4000);
+    setTimeout(() => (0, index_1.promptOptions)(), 2500);
 };
 exports.completeTask = completeTask;

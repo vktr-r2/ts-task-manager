@@ -25,8 +25,8 @@ const updateTask = (list) => {
     console.log(list[id]);
     // Array of objects to loop through title, note and dueDate updates
     const fieldsToUpdate = [
-        { key: "title", message: "Please enter new title\n" },
-        { key: "note", message: "Please enter new note\n" },
+        { key: "title", message: "Please enter new title" },
+        { key: "note", message: "Please enter new note" },
         {
             key: "dueDate",
             message: "Please enter new due date in format YYYY/MM/DD\n",
@@ -51,6 +51,6 @@ const updateTask = (list) => {
         }
     }
     console.log(list[id]);
-    setTimeout(() => (0, index_1.promptOptions)(), 4000);
+    setTimeout(() => (0, index_1.promptOptions)(), 2500);
 };
 exports.updateTask = updateTask;

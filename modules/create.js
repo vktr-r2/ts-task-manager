@@ -18,8 +18,7 @@ const getValidDate_1 = require("../helpers/getValidDate");
 const createTask = (list) => {
     //New taskId is set to greatest current taskID + 1
     const taskIdsArray = Object.keys(list).map(Number);
-    taskIdsArray.sort((a, b) => a - b);
-    const taskId = taskIdsArray[taskIdsArray.length - 1] + 1;
+    const taskId = taskIdsArray.sort((a, b) => b - a)[0] + 1;
     //Create template newTask Task object
     const newTask = {
         id: taskId,
@@ -32,8 +31,9 @@ const createTask = (list) => {
     newTask.title = readlineSync.question(`\nPlease provide a title\n`);
     newTask.note = readlineSync.question(`\nPlease provide a note\n`);
     newTask.dueDate = (0, getValidDate_1.getValidDate)(list);
+    //Log and add newTask to existing TaskList object
     console.log(newTask);
     list[taskId] = newTask;
-    (0, index_1.promptOptions)();
+    setTimeout(() => (0, index_1.promptOptions)(), 2500);
 };
 exports.createTask = createTask;

@@ -29,8 +29,8 @@ export const updateTask = (list: TaskList): void => {
 
   // Array of objects to loop through title, note and dueDate updates
   const fieldsToUpdate: { key: string; message: string }[] = [
-    { key: "title", message: "Please enter new title\n" },
-    { key: "note", message: "Please enter new note\n" },
+    { key: "title", message: "Please enter new title" },
+    { key: "note", message: "Please enter new note" },
     {
       key: "dueDate",
       message: "Please enter new due date in format YYYY/MM/DD\n",
@@ -66,5 +66,5 @@ export const updateTask = (list: TaskList): void => {
 
   console.log(list[id]);
 
-  setTimeout(() => promptOptions(), 4000);
+  setTimeout(() => promptOptions(), 2500);
 };

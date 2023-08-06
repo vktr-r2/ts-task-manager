@@ -39,6 +39,6 @@ export const createTask = (list: TaskList): void => {
   console.log(newTask);
   list[taskId] = newTask;
 
-  promptOptions();
+  setTimeout(() => promptOptions(), 2500);
 
 };

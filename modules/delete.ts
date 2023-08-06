@@ -18,7 +18,9 @@ export const deleteTask = (list: TaskList): void => {
 
   const id: string = validateTaskSelection(list, "delete");
 
-  delete list[id];
+  if (delete list[id]) {
+    console.log("\nTask successfully deleted")
+  };
 
-  promptOptions();
+  setTimeout(() => promptOptions(), 1000);
 };

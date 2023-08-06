@@ -16,7 +16,10 @@ const validateTaskSelect_1 = require("../helpers/validateTaskSelect");
 const deleteTask = (list) => {
     console.log(list);
     const id = (0, validateTaskSelect_1.validateTaskSelection)(list, "delete");
-    delete list[id];
-    (0, index_1.promptOptions)();
+    if (delete list[id]) {
+        console.log("\nTask successfully deleted");
+    }
+    ;
+    setTimeout(() => (0, index_1.promptOptions)(), 1000);
 };
 exports.deleteTask = deleteTask;
